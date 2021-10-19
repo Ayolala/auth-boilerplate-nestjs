@@ -174,8 +174,9 @@ export class AuthController {
     const userMeta = {
       device_id: user?.device_id ?? authUser.device_id,
       device_type: user?.device_type ?? authUser.device_type,
-      gcm_device_token: user?.gcm_device_token ?? authUser.gcm_device_token,
+      // gcm_device_token: user?.gcm_device_token ?? authUser.gcm_device_token,
     }
+
     this.userService.update(authUser.id, userMeta);
     const {
       first_name,
@@ -195,6 +196,8 @@ export class AuthController {
     }
 
     this.eventEmitter.emit(Event.USER_AFTER_LOGIN, { user: { ...authUser, ...userMeta } });
+
+    // return authUser;
     return success(
       {
         token: token.token,
@@ -214,7 +217,7 @@ export class AuthController {
         email_otp_verified: authUser.email_otp_verified,
         pin: mask(authUser.pin),
         bvn: mask(authUser.bvn),
-        acquire_hash: createHmac('sha256', this.configService.get('ACQUIRE_SECRET')).update(email).digest('hex'),
+        // acquire_hash: createHmac('sha256', this.configService.get('ACQUIRE_SECRET')).update(email).digest('hex'),
       },
       'Sign In',
       'Sign in was successful',

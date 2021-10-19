@@ -182,11 +182,11 @@ export class LoginUserDto {
   @ApiPropertyOptional()
   device_type?: string;
 
-  @IsOptional()
-  @IsString()
-  @Length(1, 255)
-  @ApiPropertyOptional()
-  gcm_device_token?: string;
+  // @IsOptional()
+  // @IsString()
+  // @Length(1, 255)
+  // @ApiPropertyOptional()
+  // gcm_device_token?: string;
 
 }
 export class RefreshTokenDto {

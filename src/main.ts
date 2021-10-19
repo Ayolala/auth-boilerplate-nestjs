@@ -76,26 +76,26 @@ async function bootstrap() {
     },
   });
   
-  // const document = SwaggerModule.createDocument(
-  //   app,
-  //   new DocumentBuilder()
-  //     .setTitle('Kabani')
-  //     .setDescription('API documentation for Kabani endpoints')
-  //     .setVersion('6.0')
-  //     .setBasePath(process.env.BASE_PATH)
-  //     .addBearerAuth()
-  //     .build(),
-  //   {
-  //     operationIdFactory: (controllerKey: string, methodKey: string) =>
-  //       methodKey,
-  //   },
-  // );
-  // SwaggerModule.setup('api', app, document, {
-  //   swaggerOptions: { 
-  //     persistAuthorization: true,
-  //   },
-  //   customSiteTitle: 'Kabani API Docs',
-  // });
+  const document = SwaggerModule.createDocument(
+    app,
+    new DocumentBuilder()
+      .setTitle('Digit School Api')
+      .setDescription('API documentation for Digit School endpoints')
+      .setVersion('6.0')
+      .setBasePath(process.env.BASE_PATH)
+      .addBearerAuth()
+      .build(),
+    {
+      operationIdFactory: (controllerKey: string, methodKey: string) =>
+        methodKey,
+    },
+  );
+  SwaggerModule.setup('api', app, document, {
+    swaggerOptions: { 
+      persistAuthorization: true,
+    },
+    customSiteTitle: 'Digit School API Docs',
+  });
 
   const configService = app.get(ConfigService);
   await app.listen(configService.get('PORT', 3005), '0.0.0.0');

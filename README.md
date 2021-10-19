@@ -1,47 +1,68 @@
-# Aella
+# Digit Boiler-Plate
 
-## Kabana
-Kabani handles all requests. User related requests like registration and password reset are internally handled by Kabani, however, request meant for specific services are proxied to the respective service for handling. 
+## Digit
+Digit handles all requests. User related requests like registration and password reset are internally handled by Digit, however, request meant for specific services are proxied to the respective service for handling. 
 
 ### Deployment
 1. Define Environmental Variables. 
 ```bash
-SBASE_PATH=kabani
-SERVICE_NAME=kabani
-SERVICE_URL=kabani
+BASE_PATH=School-app
+SERVICE_NAME=School-app
+SERVICE_URL=digit_school
 NODE_ENV=development
+
+PORT=4000
+
 DB_DIALECT=mysql
 DB_HOST=localhost
 DB_PORT=3306
-DB_USER=
+DB_USER=root
 DB_PASS=
-DB_NAME=
-DB_SYNC=false #Never set to true in production, you can lose production data
+DB_NAME=school
+DB_SYNC= 
+
+#Never set to true in production, you can lose production data
 DB_LOG=false
+
 THROTTLE_TTL = 60
 THROTTLE_LIMIT = 60
+
 HTTP_TIMEOUT=5000
 HTTP_MAX_REDIRECTS=5
+
 JWT_SECRET=r5u8x/A?D(G+KbPdSgVkYp3s6v9y$B&E
-ENCRYPTION_KEY=dSgVkYp3s6v9y$B&E(H+MbQeThWmZq4t  # Must be 256 bits (32 characters)
+JWT_EXPIRY=500
+ENCRYPTION_KEY=dSgVkYp3s6v9y$B&E(H+MbQeThWmZq4t  
+# Must be 256 bits (32 characters)
+
 AWS_S3_KEY=
 AWS_S3_SECRET_KEY=
 AWS_S3_BUCKET=
 AWS_S3_DIR=user_image
 AWS_S3_DIR_STAGE=user_image_staging
 AWS_S3_REGION="eu-west-1"
-OTP_EXPIRY_DURATION=86400 # 24 hrs, in seconds
+
+OTP_EXPIRY_DURATION=86400 
+# 24 hrs, in seconds
 SENTRY_DNS=
 RUDDERSTACK_SOURCE_ID=
 RUDDERSTACK_WRITE_KEY=
 RUDDERSTACK_TOKEN=
 RUDDERSTACK_DATA_PLANE_URL=
 NEVER_BOUNCE_API_KEY=
-REDIS_HOST=
-REDIS_PORT=
-REDIS_PASS=
+REDIS_HOST=redis-18536.c135.eu-central-1-1.ec2.cloud.redislabs.com
+REDIS_PORT=18536
+REDIS_PASS=PGiV8rI5NUGJkcAVcTKyHClusvSmBIHW
+REDIS_DB=0
 I18N_LANG = 'en'
 I18N_SOURCE = '/i18n/'
+
+DOCUMENT_BASE_URL=
+BVN_URL=
+PWA_BASE_URL=
+
+DD_SWITCH=
+DD_BASE_URL=
 
 # Services
 ELIGIBILITY_BASE_URL=
@@ -56,7 +77,7 @@ WALLET_BASE_URL=
 
 2. Install dependencies
 ```bash
-$ cd kabani
+$ cd Digit
 $ yarn install
 ```
 

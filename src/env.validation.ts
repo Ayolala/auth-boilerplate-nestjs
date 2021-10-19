@@ -27,30 +27,6 @@ class EnvironmentVariables {
   DB_DIALECT: string
 
   @IsString()
-  WRITER_DB_HOST: string
-
-  @IsNumber()
-  WRITER_DB_PORT: number
-
-  @IsString()
-  WRITER_DB_USER: string
-
-  @IsString()
-  WRITER_DB_PASS: string
-
-  @IsString()
-  READER_DB_HOST: string
-
-  @IsNumber()
-  READER_DB_PORT: number
-
-  @IsString()
-  READER_DB_USER: string
-
-  @IsString()
-  READER_DB_PASS: string
-
-  @IsString()
   DB_NAME: string
 
   @IsBoolean()
@@ -163,93 +139,19 @@ class EnvironmentVariables {
   WALLET_BASE_URL: string
 
   @IsString()
-  IMAGE_RECOGNITION_URL: string
-
-  @IsString()
   DOCUMENT_BASE_URL: string
 
   @IsString()
   BVN_URL: string
 
   @IsString()
-  CARDS_BASE_URL: string
-
-  @IsString()
-  SETTLEMENT_BASE_URL: string
-
-  @IsString()
-  BILL_BASE_URL: string
-
-  @IsString()
-  BANK_STATEMENT_BASE_URL: string
-
-  @IsString()
-  FAQ_BASE_URL: string
-
-  @IsString()
   PWA_BASE_URL: string
 
-  @IsString()
-  MERCHANT_BASE_URL: string
-
-  @IsString()
-  WALLET_CLIENT_ID: string
-
-  @IsString()
-  WALLET_ID: string
-
-  @IsString()
-  WALLET_SECRET: string
-
-  @IsString()
-  SLACK_BASE_URL: string
-
-  @IsString()
-  SLACK_TOKEN: string
-
-  @IsString()
-  SLACK_CHANNEL: string
-
-  @IsString()
-  PROFILE_BASE_URL: string
-
-  @IsBoolean()
-  NEVER_BOUNCE_CHECK: boolean
-
-  @IsString()
-  CUSTOMERIO_API_KEY: string
-
-  @IsString()
-  CUSTOMERIO_SITE_ID: string
-
-  @IsString()
-  VERIFYME_BASE_URL: string
-
-  @IsString()
-  VERIFYME_BASE_KEY: string
-
-  @IsString()
-  ACQUIRE_SECRET: string
-
-  @IsString()
-  NEVER_BOUNCE_FRAUD_TYPE_ID: string
-
   @IsOptional()
   @IsIn([
     'on',
     'off',
   ])
-  TRAFFIC_LOG_SWITCH?: string
-
-  @IsString()
-  ZENDESK_TOKEN_SECRET: string
-  
-  @IsOptional()
-  @IsIn([
-    'on',
-    'off',
-  ])
-  ACTIVITY_LOG_SWITCH?: string
   
   @IsOptional()
   @IsIn([
@@ -257,52 +159,6 @@ class EnvironmentVariables {
     'off',
   ])
   SHUTDOWN_SWITCH?: string
-  
-  @IsNumber()
-  USER_THROTTLE_TTL: number
-
-  @IsNumber()
-  USER_THROTTLE_LIMIT: number
-  
-  @IsString()
-  BVN_FRAUD_TYPE_ID: string
-
-  @IsOptional()
-  @IsNumber()
-  BVN_CACHE_DURATION: number
-  
-  @IsString()
-  EMAIL_REGEX_FRAUD_TYPE_ID: string
-  
-  @IsString()
-  LOGGLY_KEY: string
-
-  @IsString()
-  LOGGLY_SUBDOMAIN: string
-
-  @IsString()
-  LOGGLY_TAG: string
-
-  @IsIn([
-    'on',
-    'off',
-  ])
-  LOGGLY_SWITCH: string
-
-  @IsIn([
-    'on',
-    'off',
-  ])
-  DD_SWITCH: string
-
-  @IsString()
-  DD_BASE_URL: string
-
-  @IsString()
-  DD_API_KEY: string
-
-  @IsString()
-  IMAGE_FRAUD_TYPE_ID: string
 }
 
 export function validate(config: Record<string, unknown>) {

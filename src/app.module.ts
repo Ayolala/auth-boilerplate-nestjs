@@ -34,7 +34,7 @@ import * as path from 'path';
 import { SelectLanguageMiddleware } from './middlewares/select-language.middleware';
 import { I18nRedisResolverService } from './services/i18n-redis-resolver/i18n-redis-resolver.service';
 import { validate } from './env.validation';
-import { Queue } from 'bull';
+// import { Queue } from 'bull';
 import { ShutdownMiddleware } from './middlewares';
 
 @Module({
@@ -72,20 +72,21 @@ import { ShutdownMiddleware } from './middlewares';
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => ({
         type: 'mysql',
+        
         replication: {
           master: {
-            host: configService.get('WRITER_DB_HOST'),
-            port: +configService.get<number>('WRITER_DB_PORT'),
-            username: configService.get('WRITER_DB_USER'),
-            password: configService.get('WRITER_DB_PASS'),
+            host: configService.get('DB_HOST'),
+            port: +configService.get<number>('DB_PORT'),
+            username: configService.get('DB_USER'),
+            password: configService.get('DB_PASS'),
             database: configService.get('DB_NAME'),
           },
           slaves: [
             {
-              host: configService.get('READER_DB_HOST'),
-              port: +configService.get<number>('READER_DB_PORT'),
-              username: configService.get('READER_DB_USER'),
-              password: configService.get('READER_DB_PASS'),
+              host: configService.get('DB_HOST'),
+              port: +configService.get<number>('DB_PORT'),
+              username: configService.get('DB_USER'),
+              password: configService.get('DB_PASS'),
               database: configService.get('DB_NAME'),
             }
           ],
@@ -187,7 +188,7 @@ export class AppModule {
   
   constructor(
     private readonly moduleRef: ModuleRef,
-    @InjectQueue("kabani") private kabaniQueue: Queue,
+    // @InjectQueue("kabani") private kabaniQueue: Queue,
     private readonly configService: ConfigService,
   ) {
     setModuleRef(moduleRef);
@@ -205,16 +206,16 @@ export class AppModule {
   }
 
   onApplicationBootstrap() {
-    this.kabaniQueue.add("push-messages-to-slack", {}, {
-      repeat: {
-        cron: '0 * * * *',
-      }
-    })
-    this.kabaniQueue.add("refresh-bvns", {}, {
-      repeat: {
-        cron: '0 * * * *',
-      }
-    })
+    // this.kabaniQueue.add("push-messages-to-slack", {}, {
+    //   repeat: {
+    //     cron: '0 * * * *',
+    //   }
+    // })
+    // this.kabaniQueue.add("refresh-bvns", {}, {
+    //   repeat: {
+    //     cron: '0 * * * *',
+    //   }
+    // })
   }
 
 }
